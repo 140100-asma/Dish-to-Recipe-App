@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import app.ij.mlwithtensorflowlite.MainActivity;
 import app.ij.mlwithtensorflowlite.R;
+import app.ij.mlwithtensorflowlite.ShowRecipe;
 import app.ij.mlwithtensorflowlite.model.ParseItemModel;
 
 public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.ViewHolder> {
@@ -56,7 +57,7 @@ public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.View
         public ViewHolder(@NonNull View view) {
             super(view);
             imageView = view.findViewById(R.id.imageView);
-            textView = view.findViewById(R.id.textView);
+            textView = view.findViewById(R.id.title_id);
             view.setOnClickListener(this);
         }
 

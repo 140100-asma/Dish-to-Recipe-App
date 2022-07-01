@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="60dp"
-    android:layout_marginEnd="40dp"
-    android:layout_marginBottom="30dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/backgroundimg"
     tools:context=".MainScreen">
 
@@ -17,7 +17,7 @@
         android:background="#8FD6BE74">
 
         <LinearLayout
-            android:layout_width="264dp"
+            android:layout_width="307dp"
             android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_marginTop="60dp"
@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/MoManzer"
-                android:layout_width="272dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/chewy"
                 android:gravity="center"
