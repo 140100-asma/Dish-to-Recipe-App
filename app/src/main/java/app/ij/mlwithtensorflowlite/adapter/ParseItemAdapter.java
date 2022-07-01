@@ -40,7 +40,7 @@ public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.View
     public void onBindViewHolder(@NonNull ParseItemAdapter.ViewHolder holder, int position) {
         ParseItemModel parseItem = parseItems.get(position);
         holder.textView.setText(parseItem.getTitle());
-        //Picasso.get().load(parseItem.getImgUrl()).into(holder.imageView);
+        ///Picasso.get().load(parseItem.getImgUrl()).into(holder.imageView);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.View
             int position = getAdapterPosition();
             ParseItemModel parseItem = parseItems.get(position);
 
-            Intent intent = new Intent(context, MainActivity.class);
+            Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("title", parseItem.getTitle());
             intent.putExtra("image", parseItem.getImgUrl());
             intent.putExtra("detailUrl", parseItem.getDetailUrl());
