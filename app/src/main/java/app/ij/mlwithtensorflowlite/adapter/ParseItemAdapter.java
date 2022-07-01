@@ -65,7 +65,7 @@ public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.View
             int position = getAdapterPosition();
             ParseItemModel parseItem = parseItems.get(position);
 
-            Intent intent = new Intent(context, MainActivity.class);
+            Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("title", parseItem.getTitle());
             intent.putExtra("image", parseItem.getImgUrl());
             intent.putExtra("detailUrl", parseItem.getDetailUrl());
