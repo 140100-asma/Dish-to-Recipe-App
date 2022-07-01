@@ -40,7 +40,7 @@ public class ParseItemAdapter extends RecyclerView.Adapter<ParseItemAdapter.View
     public void onBindViewHolder(@NonNull ParseItemAdapter.ViewHolder holder, int position) {
         ParseItemModel parseItem = parseItems.get(position);
         holder.textView.setText(parseItem.getTitle());
-        //Picasso.get().load(parseItem.getImgUrl()).into(holder.imageView);
+        ///Picasso.get().load(parseItem.getImgUrl()).into(holder.imageView);
     }
 
     @Override
