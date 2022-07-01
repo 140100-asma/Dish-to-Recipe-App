@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                         classifyImage(bitmap);
 
                         //to show button here:
-                        Button showRecipe=(Button) findViewById(R.id.moreRecipes);
+                        Button showRecipe=(Button) findViewById(R.id.showRecipe2);
 
                         showRecipe.setOnClickListener(new View.OnClickListener(){
 
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, ShowRecipe.class);
                                 intent.putExtra ("key", value);
                                 startActivity(intent);
+//                                Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
                             }
                         });
 

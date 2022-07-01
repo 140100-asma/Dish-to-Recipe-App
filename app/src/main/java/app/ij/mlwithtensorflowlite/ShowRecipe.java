@@ -1,6 +1,7 @@
 package app.ij.mlwithtensorflowlite;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -31,20 +33,26 @@ public class ShowRecipe extends AppCompatActivity {
     private ParseItemAdapter adapter;
     private ArrayList<ParseItemModel> parseItems = new ArrayList<>();
     private ProgressBar progressBar;
-    String key=getIntent ().getStringExtra ("key");
+    Intent intent = getIntent();
+//    String key=intent.getStringExtra ("key");
 
-    public String url;
+    public String value="";
+    public String url="";
     public String biryaniURL="https://www.allrecipes.com/search/results/?search=briyani";
     public String friedNoodlesURL="https://www.allrecipes.com/search/results/?search=fried+noodles";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_show_recipe);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+             value = extras.getString("key");
+            //The key argument here must match that used in the other activity
+        }
 
         progressBar = findViewById(R.id.progressBar);
-        recyclerView = findViewById(R.id.recyclerView);
-
+        recyclerView = findViewById(R.id.recyclerView_ID);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ParseItemAdapter(parseItems, this);
@@ -100,11 +108,13 @@ public class ShowRecipe extends AppCompatActivity {
 
     private class Content extends AsyncTask<Void,Void,Void>{
 
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
             progressBar.startAnimation(AnimationUtils.loadAnimation(ShowRecipe.this, android.R.anim.fade_in));
+            Toast.makeText(ShowRecipe.this, value, Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -117,15 +127,22 @@ public class ShowRecipe extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            switch(key){
-                case "Biryani":
-                    url=biryaniURL;
-                    break;
-                case "Fried noodles":
-                    url=friedNoodlesURL;
-            }
+
 
             try {
+//                switch(value){
+//                    case "Biryani":
+//                        url=biryaniURL;
+//                        break;
+//                    case "Fried noodles":
+//                        url=friedNoodlesURL;
+//                }
+
+                if (value.equals("Biryani")){
+                    url=biryaniURL;
+                }else if(value.equals("Fried noodles")){
+                    url=friedNoodlesURL;
+                }
 
                 Document doc = Jsoup.connect(url).get();
 
